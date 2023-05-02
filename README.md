@@ -6,9 +6,9 @@
 
 
 **تصویر مفهومی برای توضیح بهتر این نوع تونل:**
-<p dir="rtl">client = سرور خارج</p>
-<p dir="rtl">gateway = سرور ایران</p>
-<p dir="rtl">precious resource = هدف مورد نظر</p>
+<p dir="rtl">client = سرور فیلتر</p>
+<p dir="rtl">gateway = سرور آزاد</p>
+<p dir="rtl">precious resource = سرویس مورد نظر</p>
 
 <p dir="rtl"><img src="https://user-images.githubusercontent.com/104469759/235637820-ae1e5c76-78bc-4c4b-ab51-129c517dde34.png" alt="remote ssh tunnel" title="Remote SSH Tunnel Concept"></p>
 
