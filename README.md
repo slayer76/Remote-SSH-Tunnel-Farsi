@@ -5,12 +5,11 @@
 مفهوم انجام این نوع تونل بدین شرح است که ما از طریق سرور فیلتر شده به سرور آزاد ارتباط SSH برقرار میکنیم، سپس با استفاده از همین ارتباط پایدار به صورت معکوس پورت tcp مورد نظر را از سرور آزاد به پورت tcp سرور فیلتر شده هدایت میکنیم (port forwarding)، در نتیجه کاربرات با استفاده از پورت tcp هدایت شده از سرور آزاد میتوانند به سرور فیلتر شده دسترسی داشته باشن.
 
 تصویر مفهومی برای توضیح بهتر این نوع تونل:
-<p>
-سرور خارج = client
-سرور ایران = gateway
-هدف مورد نظر = precious resource
-</p>
-<img>![ssh-tunnel-remote](https://user-images.githubusercontent.com/104469759/235637820-ae1e5c76-78bc-4c4b-ab51-129c517dde34.png)</img>
+<p dir="rtl">client = سرور خارج</p>
+<p dir="rtl">gateway = سرور ایران</p>
+<p dir="rtl">precious resource = هدف مورد نظر</p>
+
+<p dir="rtl"><img src="https://user-images.githubusercontent.com/104469759/235637820-ae1e5c76-78bc-4c4b-ab51-129c517dde34.png" alt="remote ssh tunnel" title="Remote SSH Tunnel Concept"></p>
 
 
 <h3>1. آماده سازی سرور آزاد</h3>
