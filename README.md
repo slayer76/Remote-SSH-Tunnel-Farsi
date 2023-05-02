@@ -107,4 +107,5 @@ lsof -i -P -n | grep LISTEN
 
 sshd   1111 root  10u IPv4 2222   0t0 TCP *:99 (LISTEN)
 sshd   1111 root  10u IPv6 2222   0t0 TCP *:99 (LISTEN)
+sshd   1111 root  10u IPv6 2222   0t0 TCP *:99 (LISTEN)
 
