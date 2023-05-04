@@ -136,7 +136,7 @@ numprocs=1</code>
 
 حالا در انتهای فایل باز شده این خط را اضافه کنید:
 
-<code>0 */1 * * * supervisorctl reload<code>
+<code>0 */1 * * * supervisorctl reload</code>
 
  
 <h2 dir="rtl">5. تست کردن وضعیت تونل روی سرور آزاد</h2>
