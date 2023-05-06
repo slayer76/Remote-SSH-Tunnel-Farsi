@@ -18,7 +18,10 @@
 
 <h4 dir="rtl">توجه داشته باشید که تمام فرمان ها در این آموزش باید با یوزر root اجرا شوند
 اگر دسترسی روت ندارید میتونید با اجرای فرمان زیر به یوزر روت سوییچ کنید سپس به اجرای فرمان ها بپردازید.</h4>
-<code>sudo -i</code>
+
+```bash
+sudo -i
+```
 
 
 <h2 dir="rtl">1. آماده سازی سرور آزاد</h2>
@@ -26,11 +29,15 @@
 
 فرمان زیر امکان گوش دادن به درخواست های ورودی به سرور آزاد را توسط پورت های فوروارد شده از طریق تونل باز میکند:
 
-<code>echo "GatewayPorts yes" >> /etc/ssh/sshd_config</code>
+```bash
+echo "GatewayPorts yes" >> /etc/ssh/sshd_config
+```
 
 سپس برای اعمال تغییری که تو تنظیمات sshd دادید این فرمان رو اجرا کنید:
 
-<code>systemctl restart sshd.service</code>
+```bash
+systemctl restart sshd.service
+```
 
 
 <h2 dir="rtl">2. تهیه کلید SSH درون سرور فیلتر شده و شناخت آن به سرور آزاد</h2>
@@ -40,7 +47,9 @@
 
 با فرمان زیر یک کلید جفتی ssh از نوع rsa تولید میکنیم:
 
-<code>ssh-keygen -t rsa</code>
+```bash
+ssh-keygen -t rsa
+```
 
 
 در خصوص آدرس و نام برای ثبت کلید چیزی ننویسید و خالی کلید Enter را بزنید، همچنین برای Passphrase درخواستی هم خالی کلید Enter را بزنید.
@@ -50,12 +59,16 @@
 
 حال با فرمان زیر کلید عمومی ساخته شده در سرور آزاد کپی میشود:
 
-<code>ssh-copy-id -i ~/.ssh/id_rsa.pub root@آی.پی.سرور.آزاد</code>
+```bash
+ssh-copy-id -i ~/.ssh/id_rsa.pub root@آی.پی.سرور.آزاد
+```
 
 
 از این رو که اولین باری هست که سرور فیلتر به سرور آزاد ارتباط ssh ایجاد میکند از شما درباره اعتماد به فینگرپرینت سرور آزاد سوال میشود که باید جواب دهید:
 
-<code>yes</code>
+```bash
+yes
+```
 
 سپس با وارد کردن پسورد سرور آزاد، این روند تکمیل میشود که در نتیجه دفعات بعدی شما میتوانید بدون استفاده از پسورد از درون سرور فیلتر به سرور آزاد دسترسی داشته باشید
 
@@ -72,15 +85,20 @@
 
 نصب supervisor:
 
-<code>apt update && apt-get install supervisor -y</code>
+```bash
+apt update && apt-get install supervisor -y
+```
 
 ساخت جاب برای برای supervisor: (میتونید نام رو با اسم دل بخواه برای خودتون جایگزین کنید، مثلا من زدم vless-reverse)
 
-<code>nano /etc/supervisor/conf.d/نام.conf</code>
+```bash
+nano /etc/supervisor/conf.d/نام.conf
+```
 
 سپس داخل آن مشابه زیر سرویس را بسازید:
 
-<code>[program:نام]
+```bash
+[program:نام]
 command=ssh -N -R 0.0.0.0:پورت:localhost:پورت root@آی.پی.سرور.آزاد
 directory=/root
 user=root
@@ -88,7 +106,8 @@ autostart=true
 autorestart=true
 stdout_logfile=/var/log/supervisor/نام.log
 redirect_stderr=true
-numprocs=1</code>
+numprocs=1
+```
 
 <h3>*** توجه: این متن در ادامه فقط برای توضیح هست !!! ***</h3>
 
@@ -114,15 +133,21 @@ numprocs=1</code>
 
 <p>بعد از ذخیره فایل برای بازخوانی جاب های جدید در supervisor از این فرمان استفاده کنید:</p>
 
-<code>supervisorctl reread</code>
+```bash
+supervisorctl reread
+```
 
 برای راه اندازی مجدد سرویس supervisord:
 
-<code>supervisorctl reload</code>
+```bash
+supervisorctl reload
+```
 
 برای مشاهده وضعیت جاب های فعال در supervisor:
 
-<code>supervisorctl status</code>
+```bash
+supervisorctl status
+```
 
 
 در نهایت جابی که تنظیم کردید اجرا میشه و میتونید روندشونو توی htop مشاهده کنید
@@ -136,25 +161,33 @@ numprocs=1</code>
 
  ابتدا مطمئن شوید که crontab روی سیستم شما نصب هست:
 
-<code>apt update && apt-get install cron -y</code>
+```bash
+apt update && apt-get install cron -y
+```
 
 سپس با اجرای این فرمان تنظیمات جاب های crontab را باز کنید:
 
-<code>crontab -e</code>
+```bash
+crontab -e
+```
 
 در این مرحله از شما میپرسد کدام تکست ادیتور را برای مشاهده فایل ترجیح میدهید، 
 برای سهولت امر از nano که معمولا گزینه 1 هست استفاده کنید
 
 حالا در انتهای فایل باز شده این خط را اضافه کنید:
 
-<code>0 */1 * * * supervisorctl reload</code>
+```bash
+0 */1 * * * supervisorctl reload
+```
 
  
 <h2 dir="rtl">5. تست کردن وضعیت تونل روی سرور آزاد</h2>
 <p dir="rtl">توجه: این مرحله روی سرور آزاد انجام میشه</p>
 <p dir="rtl">مهم ترین تست اینه که رو سرور آزاد باید بتونید با وارد کردن فرمان زیر:</p>
 
-<code>lsof -i -P -n | grep LISTEN</code>
+```bash
+lsof -i -P -n | grep LISTEN
+```
 
 
 <p dir="rtl">تمام پورت هایی که روی سرور آزاد در حال listen شدن هستن رو مشاهده کنید</p>
@@ -163,12 +196,17 @@ numprocs=1</code>
 
 <p dir="rtl">چیزی مشابه 2 خط زیر رو باید بتونید ببینید:</p>
 
-<code>sshd   1111 root  10u IPv4 2222   0t0 TCP *:99 (LISTEN)</code>
+```bash
+sshd   1111 root  10u IPv4 2222   0t0 TCP *:99 (LISTEN)
+```
 
 
 <p dir="rtl">در نهایت هم یادتون باشه همیشه ریبوت کردن سرور آزاد میتونه مشکلات قطعی تونل رو حل کنه</p>
 <p dir="rtl">برای ریبوت کردن هر سیستم لینوکسی فرمان زیر را استفاده کنید:</p>
-<code>reboot</code>
+
+```bash
+reboot
+```
 
 
 اگر سوال و مشکلاتی داشتید میتونید تلگرام ازم بپرسید:
