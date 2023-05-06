@@ -5,7 +5,7 @@
 مفهوم انجام این نوع تونل بدین شرح است که ما از طریق سرور فیلتر شده به سرور آزاد ارتباط SSH برقرار میکنیم، سپس با استفاده از همین ارتباط پایدار به صورت معکوس پورت tcp مورد نظر را از سرور آزاد به پورت tcp سرور فیلتر شده هدایت میکنیم (port forwarding)، در نتیجه کاربرات با استفاده از پورت tcp هدایت شده از سرور آزاد میتوانند به سرور فیلتر شده دسترسی داشته باشن.
 
 اگر سوال و مشکلاتی داشتید میتونید تلگرام ازم بپرسید:
-<a href="t.me/nillkiggersfurnbaggotskatehikes">@nillkiggersfurnbaggotskatehikes</a>
+<a href="t.me/nillkiggersfurnbaggotskatehikes">nillkiggersfurnbaggotskatehikes@</a>
 
 
 **تصویر مفهومی برای توضیح بهتر این نوع تونل:**
@@ -164,4 +164,4 @@ numprocs=1</code>
 
 
 اگر سوال و مشکلاتی داشتید میتونید تلگرام ازم بپرسید:
-<a href="t.me/nillkiggersfurnbaggotskatehikes">@nillkiggersfurnbaggotskatehikes</a>
+<a href="t.me/nillkiggersfurnbaggotskatehikes">nillkiggersfurnbaggotskatehikes@</a>
