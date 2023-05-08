@@ -186,9 +186,9 @@ crontab -e
 <p>یعنی لینک نمونه که از پنل کپی میشود:</p>
 
 <code>trojan://gy7PCiGHoC@1.1.1.1:99?type=ws&path=%2F#Config_name</code>
-⥙
+<p>↓</p>
 <code>trojan://gy7PCiGHoC@1.1.1.1:99?type=ws&path=%2F<دقیقا اینجا>#Config_name</code>
-⥙
+<p>↓</p>
 <code>trojan://gy7PCiGHoC@1.1.1.1:99?type=ws&path=%2F&security=none#Config_name</code>
 
 <h2 dir="rtl">5. تست کردن وضعیت تونل روی سرور آزاد</h2>
