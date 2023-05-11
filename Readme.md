@@ -12,8 +12,8 @@
 <p dir="rtl">client = سرور فیلتر</p>
 <p dir="rtl">gateway = سرور آزاد</p>
 <p dir="rtl">precious resource = سرویس مورد نظر</p>
-
-<p dir="rtl"><img src="![ssh-remote](https://github.com/slayer76/Remote-SSH-Tunnel-Farsi/assets/104469759/6b2eef15-c237-4ca9-9cf6-461473d109b7)" alt="remote ssh tunnel" title="Remote SSH Tunnel Concept"></p>
+![ssh-remote]()
+<a dir="rtl"><img src="https://github.com/slayer76/Remote-SSH-Tunnel-Farsi/assets/104469759/f110173f-14fa-4680-8a31-9a7c3723f137" alt="remote ssh tunnel" title="Remote SSH Tunnel Concept"></p>
 
 
 <h4 dir="rtl">توجه داشته باشید که تمام فرمان ها در این آموزش باید با یوزر root اجرا شوند
