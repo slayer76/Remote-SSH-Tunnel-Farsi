@@ -80,13 +80,12 @@ yes
 
 <h2 dir="rtl">3. ساخت فایل سرویس systemd و ایجاد تونل</h2>
 <p dir="rtl">توجه: این مرحله روی سرور فیلتر انجام میشود</p>
-)
 
 
 ساخت جاب برای systemd: (توجه کنید که اسم رو دقیق درست وارد کنید، خصوصا @ بسیار بسیار مهم هست در اسم این فایل)
 
 ```bash
-nano /etc/systemd/system/reverse@.conf
+nano /etc/systemd/system/reverse@.service
 ```
 
 سپس داخل آن مشابه زیر سرویس را بسازید:
