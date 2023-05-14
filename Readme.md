@@ -138,7 +138,7 @@ systemctl daemon-reload
 برای راه اندازی اولیه/مجدد سرویسی که ذخیره کردیم با پورت دلبخواه systemd:
 
 ```bash
-systemctl restart reverse@پورت
+systemctl start reverse@پورت
 ```
 
 برای مشاهده وضعیت سرویس فعال در systemd:
@@ -155,7 +155,7 @@ systemctl enable reverse@پورت
 چون در این روش لازم نیست برای هر پورت یک فایل مجزا بسازیم، و داریم پورت مورد نظر را در دستور تعیین میکنیم، در نتیجه میتوانیم چند سرویس مختلف با پورتای مختلف اجرا کنیم
 به شرح زیر برای مثال برای پورت های 55 و 56 و 57 و 58: (این دستور چندین سرویس/پورتی برای crontab بسیار به کار می آید)
 ```bash
-systemctl start reverse@55 reverse@56 reverse@57 reverse@58
+systemctl restart reverse@55 reverse@56 reverse@57 reverse@58
 ```
 همچنین این اجرای چند سرویس را هم توی دستور enable هم حتی میتوانیم استفاده کنیم.
 
