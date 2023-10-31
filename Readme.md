@@ -34,7 +34,7 @@ sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh
 فرمان زیر امکان گوش دادن به درخواست های ورودی به سرور آزاد را توسط پورت های فوروارد شده از طریق تونل باز میکند:
 
 ```bash
-echo "GatewayPorts yes" >> /etc/ssh/sshd_config
+sudo sed -i 's/#GatewayPorts no/GatewayPorts yes/' /etc/ssh/sshd_config
 ```
 
 سپس برای اعمال تغییری که تو تنظیمات sshd دادید این فرمان رو اجرا کنید:
@@ -112,10 +112,9 @@ WantedBy=multi-user.target
 ```
 
 برای پیاده سازی این روش در دیستروی CentOS لازم هست فایل اجرایی ssh را با مسیر محض آن تنظیم کنید که معمولا در usr/bin/ ذخیره شده. (اگر هنوزم مشکل در رابطه با Absolute Path دریافت کردید، فرمان "which ssh" را اجرا کنید تا مسیر محض ssh را به شما اعلام کند)
-در نتیجه باید خط فرمان زیر را جایگزین فرمان اجرایی در تنظیمات فایل سرویس کنید:
-```bash
-ExecStart=/usr/bin/ssh -N -R 0.0.0.0:%i:localhost:%i root@آی.پی.سرور.آزاد
-```
+در نتیجه باید خط فرمان زیر را جایگزین فرمان اجرایی در تنظیمات فایل سرویس کنید.
+یعنی باید ssh در دستور اجرا بشود
+/usr/bin/ssh
 
 
 
